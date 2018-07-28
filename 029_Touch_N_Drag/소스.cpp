@@ -18,26 +18,9 @@ int			g_CellSize = 100;
 int			g_LineWidth = 5;
 COLORREF	g_LineColor = RGB(100, 0, 255);
 
+POINT		g_PiecePos = {400, 300};
 
-POINT		g_PiecePos1 = {400, 300};
-POINT		g_PiecePos2 = {410, 300};
-POINT		g_PiecePos3 = {420, 300};
-POINT		g_PiecePos4 = {430, 300};
-POINT		g_PiecePos5 = {440, 300};
-POINT		g_PiecePos6 = {450, 300};
-POINT		g_PiecePos7 = {460, 300};
-POINT		g_PiecePos8 = {470, 300};
-POINT		g_PiecePos9 = {480, 300};
-
-POINT		g_MagnetPos1 = { 0, 0 };
-POINT		g_MagnetPos2 = { 0, 1 };
-POINT		g_MagnetPos3 = { 0, 2 };
-POINT		g_MagnetPos4 = { 1, 0 };
-POINT		g_MagnetPos5 = { 1, 1 };
-POINT		g_MagnetPos6 = { 1, 2 };
-POINT		g_MagnetPos7 = { 2, 0 };
-POINT		g_MagnetPos8 = { 2, 1 };
-POINT		g_MagnetPos9 = { 2, 2 };
+POINT		g_MagnetPos = { 0, 0 };
 
 
 void Init(HWND _hWnd)
@@ -50,51 +33,19 @@ void Update(float _elapseTime)
 {
 	if (GetKeyState(VK_LEFT) & 0x8000)
 	{
-		g_PiecePos1.x-= 1;
-		g_PiecePos2.x-= 1;
-		g_PiecePos3.x-= 1;
-		g_PiecePos4.x-= 1;
-		g_PiecePos5.x-= 1;
-		g_PiecePos6.x-= 1;
-		g_PiecePos7.x-= 1;
-		g_PiecePos8.x-= 1;
-		g_PiecePos9.x-= 1;
+		g_PiecePos.x-= 3;
 	}
 	if (GetKeyState(VK_RIGHT) & 0x8000)
 	{
-		g_PiecePos1.x+= 1;
-		g_PiecePos2.x+= 1;
-		g_PiecePos3.x+= 1;
-		g_PiecePos4.x+= 1;
-		g_PiecePos5.x+= 1;
-		g_PiecePos6.x+= 1;
-		g_PiecePos7.x+= 1;
-		g_PiecePos8.x+= 1;
-		g_PiecePos9.x+= 1;
+		g_PiecePos.x+= 3;
 	}
 	if (GetKeyState(VK_UP) & 0x8000)
 	{
-		g_PiecePos1.y -= 1;
-		g_PiecePos2.y -= 1;
-		g_PiecePos3.y -= 1;
-		g_PiecePos4.y -= 1;
-		g_PiecePos5.y -= 1;
-		g_PiecePos6.y -= 1;
-		g_PiecePos7.y -= 1;
-		g_PiecePos8.y -= 1;
-		g_PiecePos9.y -= 1;
+		g_PiecePos.y -= 3;
 	}
 	if (GetKeyState(VK_DOWN) & 0x8000)
 	{
-		g_PiecePos1.y += 1;
-		g_PiecePos2.y += 1;
-		g_PiecePos3.y += 1;
-		g_PiecePos4.y += 1;
-		g_PiecePos5.y += 1;
-		g_PiecePos6.y += 1;
-		g_PiecePos7.y += 1;
-		g_PiecePos8.y += 1;
-		g_PiecePos9.y += 1;
+		g_PiecePos.y += 3;
 	}
 }
 void Render(HDC _hdc)
@@ -122,35 +73,11 @@ void Render(HDC _hdc)
 
 	DeleteObject(SelectPen(_hdc, hOld));
 
-	RECT rt1 = { 0, 0, g_CellSize, g_CellSize };
-	RECT rt2 = { 0, 0, g_CellSize, g_CellSize };
-	RECT rt3 = { 0, 0, g_CellSize, g_CellSize };
-	RECT rt4 = { 0, 0, g_CellSize, g_CellSize };
-	RECT rt5 = { 0, 0, g_CellSize, g_CellSize };
-	RECT rt6 = { 0, 0, g_CellSize, g_CellSize };
-	RECT rt7 = { 0, 0, g_CellSize, g_CellSize };
-	RECT rt8 = { 0, 0, g_CellSize, g_CellSize };
-	RECT rt9 = { 0, 0, g_CellSize, g_CellSize };
+	RECT rt = { 0, 0, g_CellSize, g_CellSize };
 
-	OffsetRect(&rt1, g_PiecePos1.x, g_PiecePos1.y);
-	OffsetRect(&rt2, g_PiecePos2.x, g_PiecePos2.y);
-	OffsetRect(&rt3, g_PiecePos3.x, g_PiecePos3.y);
-	OffsetRect(&rt4, g_PiecePos4.x, g_PiecePos4.y);
-	OffsetRect(&rt5, g_PiecePos5.x, g_PiecePos5.y);
-	OffsetRect(&rt6, g_PiecePos6.x, g_PiecePos6.y);
-	OffsetRect(&rt7, g_PiecePos7.x, g_PiecePos7.y);
-	OffsetRect(&rt8, g_PiecePos8.x, g_PiecePos8.y);
-	OffsetRect(&rt9, g_PiecePos9.x, g_PiecePos9.y);
+	OffsetRect(&rt, g_PiecePos.x, g_PiecePos.y);
 
-	Rectangle(_hdc, rt1.left, rt1.top, rt1.right, rt1.bottom);
-	Rectangle(_hdc, rt2.left, rt2.top, rt2.right, rt2.bottom);
-	Rectangle(_hdc, rt3.left, rt3.top, rt3.right, rt3.bottom);
-	Rectangle(_hdc, rt4.left, rt4.top, rt4.right, rt4.bottom);
-	Rectangle(_hdc, rt5.left, rt5.top, rt5.right, rt5.bottom);
-	Rectangle(_hdc, rt6.left, rt6.top, rt6.right, rt6.bottom);
-	Rectangle(_hdc, rt7.left, rt7.top, rt7.right, rt7.bottom);
-	Rectangle(_hdc, rt8.left, rt8.top, rt8.right, rt8.bottom);
-	Rectangle(_hdc, rt9.left, rt9.top, rt9.right, rt9.bottom);
+	Rectangle(_hdc, rt.left, rt.top, rt.right, rt.bottom);
 
 	TIME.Render(_hdc, 0, 0);
 }
@@ -175,78 +102,15 @@ LRESULT	CALLBACK WndProc(
 		case VK_SPACE:
 		{
 			//	윈도우화면에서의 해당 좌표
-			POINT RealMagnetPos1 = { g_StartPos.x + g_CellSize * g_MagnetPos1.x, g_StartPos.y + g_CellSize * g_MagnetPos1.y };
-			POINT RealMagnetPos2 = { g_StartPos.x + g_CellSize * g_MagnetPos1.x, g_StartPos.y + g_CellSize * g_MagnetPos1.y };
-			POINT RealMagnetPos3 = { g_StartPos.x + g_CellSize * g_MagnetPos1.x, g_StartPos.y + g_CellSize * g_MagnetPos1.y };
-			POINT RealMagnetPos4 = { g_StartPos.x + g_CellSize * g_MagnetPos1.x, g_StartPos.y + g_CellSize * g_MagnetPos1.y };
-			POINT RealMagnetPos5 = { g_StartPos.x + g_CellSize * g_MagnetPos1.x, g_StartPos.y + g_CellSize * g_MagnetPos1.y };
-			POINT RealMagnetPos6 = { g_StartPos.x + g_CellSize * g_MagnetPos1.x, g_StartPos.y + g_CellSize * g_MagnetPos1.y };
-			POINT RealMagnetPos7 = { g_StartPos.x + g_CellSize * g_MagnetPos1.x, g_StartPos.y + g_CellSize * g_MagnetPos1.y };
-			POINT RealMagnetPos8 = { g_StartPos.x + g_CellSize * g_MagnetPos1.x, g_StartPos.y + g_CellSize * g_MagnetPos1.y };
-			POINT RealMagnetPos9 = { g_StartPos.x + g_CellSize * g_MagnetPos1.x, g_StartPos.y + g_CellSize * g_MagnetPos1.y };
+			POINT RealMagnetPos = { g_StartPos.x + g_CellSize * g_MagnetPos.x, g_StartPos.y + g_CellSize * g_MagnetPos.y };
 
 			//	sqrt((x-x0)^2 + (y-y0)^2)
-			float distance1 = sqrtf(powf(RealMagnetPos1.x - g_PiecePos1.x, 2) + powf(RealMagnetPos1.y - g_PiecePos1.y, 2));
-			float distance2 = sqrtf(powf(RealMagnetPos2.x - g_PiecePos2.x, 2) + powf(RealMagnetPos2.y - g_PiecePos2.y, 2));
-			float distance3 = sqrtf(powf(RealMagnetPos3.x - g_PiecePos3.x, 2) + powf(RealMagnetPos3.y - g_PiecePos3.y, 2));
-			float distance4 = sqrtf(powf(RealMagnetPos4.x - g_PiecePos4.x, 2) + powf(RealMagnetPos4.y - g_PiecePos4.y, 2));
-			float distance5 = sqrtf(powf(RealMagnetPos5.x - g_PiecePos5.x, 2) + powf(RealMagnetPos5.y - g_PiecePos5.y, 2));
-			float distance6 = sqrtf(powf(RealMagnetPos6.x - g_PiecePos6.x, 2) + powf(RealMagnetPos6.y - g_PiecePos6.y, 2));
-			float distance7 = sqrtf(powf(RealMagnetPos7.x - g_PiecePos7.x, 2) + powf(RealMagnetPos7.y - g_PiecePos7.y, 2));
-			float distance8 = sqrtf(powf(RealMagnetPos8.x - g_PiecePos8.x, 2) + powf(RealMagnetPos8.y - g_PiecePos8.y, 2));
-			float distance9 = sqrtf(powf(RealMagnetPos9.x - g_PiecePos9.x, 2) + powf(RealMagnetPos9.y - g_PiecePos9.y, 2));
+			float distance = sqrtf(powf(RealMagnetPos.x - g_PiecePos.x, 2) + powf(RealMagnetPos.y - g_PiecePos.y, 2));
 
-			if (distance1 < g_CellSize)
+			if (distance < 30)
 			{
-				g_PiecePos1.x = RealMagnetPos1.x;
-				g_PiecePos1.y = RealMagnetPos2.y;
-			}
-
-			else if (distance2 < g_CellSize)
-			{
-				g_PiecePos2.x = RealMagnetPos2.x;
-				g_PiecePos2.y = RealMagnetPos2.y;
-			}
-
-			else if (distance3 < g_CellSize)
-			{
-				g_PiecePos3.x = RealMagnetPos3.x;
-				g_PiecePos3.y = RealMagnetPos3.y;
-			}
-			else if (distance4 < g_CellSize)
-			{
-				g_PiecePos4.x = RealMagnetPos4.x;
-				g_PiecePos4.y = RealMagnetPos4.y;
-			}
-
-			else if (distance5 < g_CellSize)
-			{
-				g_PiecePos5.x = RealMagnetPos5.x;
-				g_PiecePos5.y = RealMagnetPos5.y;
-			}
-
-			else if (distance6 < g_CellSize)
-			{
-				g_PiecePos5.x = RealMagnetPos5.x;
-				g_PiecePos5.y = RealMagnetPos5.y;
-			}
-
-			else if (distance7 < g_CellSize)
-			{
-				g_PiecePos5.x = RealMagnetPos5.x;
-				g_PiecePos5.y = RealMagnetPos5.y;
-			}
-
-			else if (distance8 < g_CellSize)
-			{
-				g_PiecePos5.x = RealMagnetPos5.x;
-				g_PiecePos5.y = RealMagnetPos5.y;
-			}
-
-			else if (distance9 < g_CellSize)
-			{
-				g_PiecePos5.x = RealMagnetPos5.x;
-				g_PiecePos5.y = RealMagnetPos5.y;
+				g_PiecePos.x = RealMagnetPos.x;
+				g_PiecePos.y = RealMagnetPos.y;
 			}
 
 		}break;
