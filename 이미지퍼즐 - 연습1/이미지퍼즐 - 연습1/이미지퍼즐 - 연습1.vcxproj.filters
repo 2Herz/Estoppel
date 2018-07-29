@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\Singleton">
+      <UniqueIdentifier>{37614fa5-d078-460a-9cad-db4ff6994442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Img">
+      <UniqueIdentifier>{cb627640-035b-4032-9efb-bef6506165b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Time">
+      <UniqueIdentifier>{6fbc1858-e60b-4144-a03c-f9e3f352f208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Time\Class">
+      <UniqueIdentifier>{d0f7cefb-b259-44e2-b859-ba3e694cd03e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Img\Class">
+      <UniqueIdentifier>{e7ed6320-bc50-400c-b8e4-ae47c990d545}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Img\Manager">
+      <UniqueIdentifier>{27148d33-2cca-4b15-bb7a-516bb82d5112}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Time\Manager">
+      <UniqueIdentifier>{e5e29373-9c40-4e31-b165-45043a4fd967}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\WinBase">
+      <UniqueIdentifier>{64b83cfd-8728-47da-bb30-bdff1f6b9dec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\My">
+      <UniqueIdentifier>{ea16a258-2491-44e3-b01a-6a4513d162e6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Global.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SingletonA.h">
+      <Filter>소스 파일\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="SingletonB.h">
+      <Filter>소스 파일\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeClass.h">
+      <Filter>소스 파일\Time\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgClass.h">
+      <Filter>소스 파일\Img\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgMgr.h">
+      <Filter>소스 파일\Img\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeMgr.h">
+      <Filter>소스 파일\Time\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="WinBase.h">
+      <Filter>소스 파일\WinBase</Filter>
+    </ClInclude>
+    <ClInclude Include="My.h">
+      <Filter>소스 파일\My</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TimeClass.cpp">
+      <Filter>소스 파일\Time\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="ImgClass.cpp">
+      <Filter>소스 파일\Img\Class</Filter>
+    </ClCompile>
+    <ClCompile Include="ImgMgr.cpp">
+      <Filter>소스 파일\Img\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeMgr.cpp">
+      <Filter>소스 파일\Time\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="WinBase.cpp">
+      <Filter>소스 파일\WinBase</Filter>
+    </ClCompile>
+    <ClCompile Include="winMain.cpp">
+      <Filter>소스 파일\WinBase</Filter>
+    </ClCompile>
+    <ClCompile Include="My.cpp">
+      <Filter>소스 파일\My</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
