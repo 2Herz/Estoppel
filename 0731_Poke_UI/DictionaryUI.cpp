@@ -32,30 +32,36 @@ void DictionaryUI::Render_Main_Dictionary(HDC _hdc, int _width, int _height)
 	HDC _BGDC = IMG_MGR->GetImg("Dic_01")->GetImgDC();
 	BitBlt(_hdc, 0, 0, WIN_WIDTH, WIN_HEIGHT, _BGDC, 0, 0, SRCCOPY);
 
-	text.TextBox(_hdc, (m_ImgPos.x + 210),(m_ImgPos.y + 6), "포켓몬    도감    목차", 40, WHITE);
-	text.TextBox(_hdc, (m_ImgPos.x + 15),(m_ImgPos.y + 66), "포켓몬 목록", 40, ORANGE);
-	text.TextBox(_hdc, (m_ImgPos.x + 680),(m_ImgPos.y + 113), "발견한  포켓몬", 35, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 120), "번호 순", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 15),(m_ImgPos.y + 166), "여러  장소에  사는  포켓몬", 40, ORANGE);
-	text.TextBox(_hdc, (m_ImgPos.x + 680),(m_ImgPos.y + 203), "잡은  포켓몬", 35, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 216), "초원에  사는  포켓몬", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 266), "숲에  사는  포켓몬", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 316), "물가에  사는  포켓몬", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 366), "바다에  사는  포켓몬", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 416), "동굴에  사는  포켓몬", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 466), "산에  사는  포켓몬", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 516), "황야에  사는  포켓몬", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 566), "도시에  사는  포켓몬", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 616), "희귀한  포켓몬", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 15),(m_ImgPos.y + 666), "포켓몬 목록", 40, ORANGE);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 716), "가나다  순", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 766), "타입   순", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 816), "무게   순", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 866), "크기   순", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 15),(m_ImgPos.y + 916), "기타", 40, ORANGE);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 966), "도감을   닫는다", 40, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 750),(m_ImgPos.y + 595), "선택", 35, WHITE);
-	text.TextBox(_hdc, (m_ImgPos.x + 865),(m_ImgPos.y + 595), "결정", 35, WHITE);
+	text.TextBox(_hdc, (m_ImgPos.x + 210),(m_ImgPos.y + 6), "포켓몬    도감    목차", m_WordSize, WHITE);
+	text.TextBox(_hdc, (m_ImgPos.x + 15),(m_ImgPos.y + 66), "포켓몬 목록", m_WordSize, ORANGE);
+	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 120), m_str[0], m_WordSize, BLACK);
+	text.TextBox(_hdc, (m_ImgPos.x + 15),(m_ImgPos.y + 166), "여러  장소에  사는  포켓몬", m_WordSize, ORANGE);
+	for (int i = 1; i <= 9; i++)
+	{
+		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY, m_str[i], m_WordSize, BLACK);
+		i++;
+		/*text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY, m_str[1], m_WordSize, BLACK);
+		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 40, m_str[2], m_WordSize, BLACK);
+		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 80, m_str[3], m_WordSize, BLACK);
+		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 120, m_str[4], m_WordSize, BLACK);
+		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 160, m_str[5], m_WordSize, BLACK);
+		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 200, m_str[6], m_WordSize, BLACK);
+		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 240, m_str[7], m_WordSize, BLACK);
+		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 280, m_str[8], m_WordSize, BLACK);
+		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 320, m_str[9], m_WordSize, BLACK);*/
+	}
+
+	//text.TextBox(_hdc, (m_ImgPos.x + 15), (m_ImgPos.y + 286), "정  렬", m_WordSize, ORANGE);
+	/*for (int i = 11; i <= 14; i++)
+	{
+		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 326, m_str[i], m_WordSize, BLACK);
+	}
+	text.TextBox(_hdc, (m_ImgPos.x + 15),(m_ImgPos.y + 916), "기타", m_WordSize, ORANGE);
+	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 966), "도감을   닫는다", m_WordSize, BLACK);
+	text.TextBox(_hdc, (m_ImgPos.x + 750),(m_ImgPos.y + 595), "선택", (m_WordSize - 5), WHITE);
+	text.TextBox(_hdc, (m_ImgPos.x + 865),(m_ImgPos.y + 595), "결정", (m_WordSize - 5), WHITE);*/
+	text.TextBox(_hdc, (m_ImgPos.x + 680), (m_ImgPos.y + 113), "발견한  포켓몬", (m_WordSize - 5), BLACK);
+	text.TextBox(_hdc, (m_ImgPos.x + 680), (m_ImgPos.y + 203), "잡은  포켓몬", m_WordSize, BLACK);
 
 	/*if (m_isClick == false)
 	{

@@ -14,6 +14,8 @@ public:
 	int m_Select = 0;
 	bool m_isSelect = false;
 	bool m_isClick = false;
+	int m_WordSize = 40;
+	int m_posY = 205;
 
 
 public:
