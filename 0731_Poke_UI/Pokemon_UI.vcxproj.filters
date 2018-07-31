@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\Time">
+      <UniqueIdentifier>{a0e8d8a1-dafe-49ef-a540-ba2eabdddb36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Img">
+      <UniqueIdentifier>{f370f7ad-4855-45ea-aca8-55e9b25cd303}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UI">
+      <UniqueIdentifier>{680019eb-a99a-49d6-9be3-d7d3d3602afe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\WinBase">
+      <UniqueIdentifier>{87e16104-c94d-4b53-81db-9a9eb322134d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Template">
+      <UniqueIdentifier>{86cc70fb-51d6-4161-9c39-6cbca13eea54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Key">
+      <UniqueIdentifier>{d5486e13-0c44-4402-9b5d-316504c42c1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UI\Pokemon">
+      <UniqueIdentifier>{a73e49cd-e0db-4207-be08-5d2dd8744a76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UI\Menu">
+      <UniqueIdentifier>{02a6401a-5746-49f7-9902-e80f19d37db9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UI\Save">
+      <UniqueIdentifier>{25a0511b-635e-42a0-9dd7-816ea678f99c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UI\Dictionary">
+      <UniqueIdentifier>{bccf1ace-8d1c-47db-834a-507da04b470e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UI\SettingMenuUI">
+      <UniqueIdentifier>{7483b513-8b22-406a-ae94-0bbc2a1fd378}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UI\Box">
+      <UniqueIdentifier>{fbcd5830-cb0c-49fc-9f1d-76a2f1a0703f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UI\Text">
+      <UniqueIdentifier>{ba1e0ece-199e-4d9a-9f05-af7efcb50bf9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MyWin.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>소스 파일\WinBase</Filter>
+    </ClCompile>
+    <ClCompile Include="WinBase.cpp">
+      <Filter>소스 파일\WinBase</Filter>
+    </ClCompile>
+    <ClCompile Include="ImgClass.cpp">
+      <Filter>소스 파일\Img</Filter>
+    </ClCompile>
+    <ClCompile Include="ImgMgr.cpp">
+      <Filter>소스 파일\Img</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeMgr.cpp">
+      <Filter>소스 파일\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>소스 파일\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyManager.cpp">
+      <Filter>소스 파일\Key</Filter>
+    </ClCompile>
+    <ClCompile Include="PokemonUI.cpp">
+      <Filter>소스 파일\UI\Pokemon</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuUI.cpp">
+      <Filter>소스 파일\UI\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingMenuUI.cpp">
+      <Filter>소스 파일\UI\SettingMenuUI</Filter>
+    </ClCompile>
+    <ClCompile Include="DictionaryUI.cpp">
+      <Filter>소스 파일\UI\Dictionary</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveUI.cpp">
+      <Filter>소스 파일\UI\Save</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxUI.cpp">
+      <Filter>소스 파일\UI\Box</Filter>
+    </ClCompile>
+    <ClCompile Include="TextUI.cpp">
+      <Filter>소스 파일\UI\Text</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MyWin.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="WinBase.h">
+      <Filter>소스 파일\WinBase</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgClass.h">
+      <Filter>소스 파일\Img</Filter>
+    </ClInclude>
+    <ClInclude Include="ImgMgr.h">
+      <Filter>소스 파일\Img</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateSingletonA.h">
+      <Filter>소스 파일\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="TemplateSingletonB.h">
+      <Filter>소스 파일\Template</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeMgr.h">
+      <Filter>소스 파일\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>소스 파일\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyManager.h">
+      <Filter>소스 파일\Key</Filter>
+    </ClInclude>
+    <ClInclude Include="PokemonUI.h">
+      <Filter>소스 파일\UI\Pokemon</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuUI.h">
+      <Filter>소스 파일\UI\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingMenuUI.h">
+      <Filter>소스 파일\UI\SettingMenuUI</Filter>
+    </ClInclude>
+    <ClInclude Include="DictionaryUI.h">
+      <Filter>소스 파일\UI\Dictionary</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveUI.h">
+      <Filter>소스 파일\UI\Save</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxUI.h">
+      <Filter>소스 파일\UI\Box</Filter>
+    </ClInclude>
+    <ClInclude Include="TextUI.h">
+      <Filter>소스 파일\UI\Text</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
