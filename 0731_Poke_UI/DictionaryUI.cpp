@@ -1,5 +1,8 @@
 #include "DictionaryUI.h"
 
+typedef TextUI Text;
+typedef BoxUI Box;
+
 DictionaryUI::DictionaryUI()
 {
 }

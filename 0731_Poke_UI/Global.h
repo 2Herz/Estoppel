@@ -13,10 +13,6 @@
 #include "BoxUI.h"
 using namespace std;
 
-typedef TextUI Text;
-typedef BoxUI Box;
-typedef KeyManager Key;
-
 //#include "MenuUI.h"
 //
 //#include "DictionaryUI.h"
