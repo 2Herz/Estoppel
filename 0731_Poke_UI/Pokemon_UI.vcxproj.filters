@@ -146,11 +146,11 @@
     <ClInclude Include="SaveUI.h">
       <Filter>소스 파일\UI\Save</Filter>
     </ClInclude>
-    <ClInclude Include="BoxUI.h">
-      <Filter>소스 파일\UI\Box</Filter>
-    </ClInclude>
     <ClInclude Include="TextUI.h">
       <Filter>소스 파일\UI\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxUI.h">
+      <Filter>소스 파일\UI\Box</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

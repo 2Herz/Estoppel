@@ -32,197 +32,59 @@ void DictionaryUI::Render_Main_Dictionary(HDC _hdc, int _width, int _height)
 	HDC _BGDC = IMG_MGR->GetImg("Dic_01")->GetImgDC();
 	BitBlt(_hdc, 0, 0, WIN_WIDTH, WIN_HEIGHT, _BGDC, 0, 0, SRCCOPY);
 
-	text.TextBox(_hdc, (m_ImgPos.x + 210),(m_ImgPos.y + 6), "포켓몬    도감    목차", m_WordSize, WHITE);
-	text.TextBox(_hdc, (m_ImgPos.x + 15),(m_ImgPos.y + 66), "포켓몬 목록", m_WordSize, ORANGE);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 120), m_str[0], m_WordSize, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 15),(m_ImgPos.y + 166), "여러  장소에  사는  포켓몬", m_WordSize, ORANGE);
-	for (int i = 1; i <= 9; i++)
+	text.TextBox(_hdc, (m_ImgPos.x + 210),(m_ImgPos.y + 11), "포켓몬    도감    목차", m_WordSize, WHITE);
+	if (m_ImgPos.y < (WIN_HEIGHT - 576) && m_ImgPos.y < (WIN_HEIGHT - 128))
 	{
-		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY, m_str[i], m_WordSize, BLACK);
-		i++;
-		/*text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY, m_str[1], m_WordSize, BLACK);
-		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 40, m_str[2], m_WordSize, BLACK);
-		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 80, m_str[3], m_WordSize, BLACK);
-		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 120, m_str[4], m_WordSize, BLACK);
-		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 160, m_str[5], m_WordSize, BLACK);
-		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 200, m_str[6], m_WordSize, BLACK);
-		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 240, m_str[7], m_WordSize, BLACK);
-		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 280, m_str[8], m_WordSize, BLACK);
-		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + 320, m_str[9], m_WordSize, BLACK);*/
-	}
+		text.TextBox(_hdc, m_ImgPos.x + 15, m_ImgPos.y + 66, m_str[0], m_WordSize, ORANGE);
+		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 120, m_str[1], m_WordSize, BLACK);
+		text.TextBox(_hdc, m_ImgPos.x + 15, m_ImgPos.y + 166, m_str[2], m_WordSize, ORANGE);
 
-	//text.TextBox(_hdc, (m_ImgPos.x + 15), (m_ImgPos.y + 286), "정  렬", m_WordSize, ORANGE);
-	/*for (int i = 11; i <= 14; i++)
-	{
-		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 326, m_str[i], m_WordSize, BLACK);
-	}
-	text.TextBox(_hdc, (m_ImgPos.x + 15),(m_ImgPos.y + 916), "기타", m_WordSize, ORANGE);
-	text.TextBox(_hdc, (m_ImgPos.x + 80),(m_ImgPos.y + 966), "도감을   닫는다", m_WordSize, BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 750),(m_ImgPos.y + 595), "선택", (m_WordSize - 5), WHITE);
-	text.TextBox(_hdc, (m_ImgPos.x + 865),(m_ImgPos.y + 595), "결정", (m_WordSize - 5), WHITE);*/
-	text.TextBox(_hdc, (m_ImgPos.x + 680), (m_ImgPos.y + 113), "발견한  포켓몬", (m_WordSize - 5), BLACK);
-	text.TextBox(_hdc, (m_ImgPos.x + 680), (m_ImgPos.y + 203), "잡은  포켓몬", m_WordSize, BLACK);
-
-	/*if (m_isClick == false)
-	{
-		if (KEYMGR.OnceKeyDown(VK_UP))
+		for (int i = 3; i <= 11; i++)
 		{
-			m_scrollY += 40;
-			m_Select++;
-			if (m_Select < 0)
-				m_Select = WIN_HEIGHT - 576;
+			text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY, m_str[3], m_WordSize, BLACK);
+			text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + m_WordSize, m_str[4], m_WordSize, BLACK);
+			text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + (m_WordSize * 2), m_str[5], m_WordSize, BLACK);
 		}
-		if (KEYMGR.OnceKeyDown(VK_DOWN))
+
+		text.TextBox(_hdc, (m_ImgPos.x + 15), (m_ImgPos.y + 256), m_str[12], m_WordSize, ORANGE);
+
+		for (int i = 11; i <= 14; i++)
 		{
-			m_scrollY -= 40;
-			m_Select++;
-			if (m_Select > WIN_HEIGHT - 128)
-				m_Select = 0;
+			text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 296, m_str[13], m_WordSize, BLACK);
+			text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 296 + 41, m_str[14], m_WordSize, BLACK);
+			text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 296 + 81, m_str[15], m_WordSize, BLACK);
+			text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 296 + 121, m_str[16], m_WordSize, BLACK);
+		}
+
+		text.TextBox(_hdc, m_ImgPos.x + 15, m_ImgPos.y + 296 + (m_WordSize * 4) + 30, m_str[17], m_WordSize, ORANGE);
+		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 296 + (m_WordSize * 5) + 30, m_str[18], m_WordSize, BLACK);
+		text.TextBox(_hdc, m_ImgPos.x + 750, m_ImgPos.y + 595, "선택", (m_WordSize - 5), WHITE);
+		text.TextBox(_hdc, m_ImgPos.x + 865, m_ImgPos.y + 595, "결정", (m_WordSize - 5), WHITE);
+		text.TextBox(_hdc, m_ImgPos.x + 680, m_ImgPos.y + 113, "발견한  포켓몬", (m_WordSize - 5), BLACK);
+		text.TextBox(_hdc, m_ImgPos.x + 680, m_ImgPos.y + 203, "잡은  포켓몬", (m_WordSize - 5), BLACK);
+
+		//	화살표 : 기본값 false
+		if (m_isSelect == false)	return;
+
+		auto select = IMG_MGR->GetImg("Select");
+		select->AniRender(_hdc, 0, (m_ImgPos.x + 80) * m_CellSize.cx, (m_ImgPos.y + 120) + (m_Select * 2) * m_CellSize.cy);
+
+		if (m_isClick == false)
+		{
+			if (KEYMGR.OnceKeyDown(VK_DOWN))
+			{
+				m_Select++;
+				if (m_Select > m_MaxNum - 1)
+					m_Select = 0;
+			}
+			if (KEYMGR.OnceKeyDown(VK_UP))
+			{
+				m_Select--;
+				if (m_Select < 0)
+					m_Select = m_MaxNum - 1;
+			}
 		}
 	}
-	
-	switch (m_Select)
-	{
-		case DS_LIST:
-		{
-			Render_Dictionary_List(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case DS_GRASSLAND:
-		{
-			Render_Dictionary_GrassLand(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case DS_FOREST:
-		{
-			Render_Dictionary_Forest(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case DS_WATERFRONT:
-		{
-			Render_Dictionary_WaterFront(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case DS_SEA:
-		{
-			Render_Dictionary_Sea(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case DS_CAVE:
-		{
-			Render_Dictionary_Cave(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case DS_MOUNTAIN:
-		{
-			Render_Dictionary_Mountain(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case DS_WILDERNESS:
-		{
-			Render_Dictionary_Wilderness(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case DS_CITY:
-		{
-			Render_Dictionary_City(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case DS_RARE:
-		{
-			Render_Dictionary_Rare(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case DS_SORT_ORDER:
-		{
-
-		}break;
-		case DS_SORT_TYPE:
-		{
-
-		}break;
-		case DS_SORT_WEIGHT:
-		{
-
-		}break;
-		case DS_SORT_SIZE:
-		{
-
-		}break;
-		case DS_ETC:
-		break;
-	}
-
-	if (KEYMGR.OnceKeyDown('Z'))
-	{
-		m_isClick = !m_isClick;
-	}
-
-	if (m_isClick == true)
-	{
-		switch (m_Select)
-		{
-		case 0:
-		{
-			Render_Dictionary_List(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-
-		case 1:
-		{
-			Render_Dictionary_GrassLand(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-
-		case 2:
-		{
-			Render_Dictionary_Forest(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-
-		case 3:
-		{
-			Render_Dictionary_WaterFront(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-
-		case 4:
-		{
-			Render_Dictionary_Sea(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-
-		case 5:
-		{
-			Render_Dictionary_Cave(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case 6:
-		{
-			Render_Dictionary_Mountain(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case 7:
-		{
-			Render_Dictionary_Wilderness(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case 8:
-		{
-			Render_Dictionary_City(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case 9:
-		{
-			Render_Dictionary_Rare(_hdc, WIN_WIDTH, WIN_HEIGHT);
-		}break;
-		case 10:
-		{
-
-		}break;
-		case 11:
-		{
-
-		}break;
-		case 12:
-		{
-
-		}break;
-		case 13:
-		{
-
-		}break;
-		case 14:
-		{
-
-		}break;
-		case 15:
-		{
-
-		}break;
-		}
-	}*/
 }
 
 void DictionaryUI::Render_Dictionary_List(HDC _hdc, int width, int _height)

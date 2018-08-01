@@ -8,15 +8,17 @@ private:
 	int m_imgHeight = WIN_HEIGHT;
 	POINT m_ImgPos = { 0, 0 };
 	SIZE m_CellSize = { 32, 32 };
-	const char* m_str[15] = { { "번호 순" }, { "초원에  사는  포켓몬" }, { "숲에  사는  포켓몬" }, { "물가에  사는  포켓몬" }, { "바다에  사는  포켓몬" }, { "동굴에  사는  포켓몬" }, { "산에  사는  포켓몬" }, { "황야에  사는  포켓몬" }, { "도시에  사는  포켓몬" }, { "희귀한  포켓몬" }, { "가나다  순" }, { "타입   순" }, { "무게   순" }, { "크기   순" }, { "도감을   닫는다" }};
+	POINT m_StartPos = {};
+	POINT m_EndPos = {};
+	bool m_isSelect = false;
+	int m_MaxNum;
+	const char* m_str[19] = { {"포켓몬 목록"},  { "번호 순" }, {"여러 장소에 사는 포켓몬"},  { "초원에  사는  포켓몬" }, { "숲에  사는  포켓몬" }, { "물가에  사는  포켓몬" }, { "바다에  사는  포켓몬" }, { "동굴에  사는  포켓몬" }, { "산에  사는  포켓몬" }, { "황야에  사는  포켓몬" }, { "도시에  사는  포켓몬" }, { "희귀한  포켓몬" }, {"정렬"},  { "가나다  순" }, { "타입   순" }, { "무게   순" }, { "크기   순" }, {"기타"}, {"도감을 닫는다."} };
 
 public:
 	int m_Select = 0;
-	bool m_isSelect = false;
 	bool m_isClick = false;
 	int m_WordSize = 40;
-	int m_posY = 205;
-
+	int m_posY = 206;
 
 public:
 	DictionaryUI();

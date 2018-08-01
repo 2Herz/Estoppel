@@ -57,6 +57,7 @@ void BoxUI::BoxImg(HDC _hdc, int _posX, int _posY, int _tileX, int _tileY)
 	
 }
 
+//	그릴 곳, 시작점, 끝점, 화살표 갯수, 선택
 void BoxUI::BoxCreate(HDC _hdc, int _startPosX, int _startPosY, int _endPosX, int _endPosY, int _MaxNum, bool _select)
 {
 	POINT	drawPos = { _startPosX, _startPosY };
