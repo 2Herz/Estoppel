@@ -25,8 +25,9 @@ void DictionaryUI::Init(HWND _hWnd)
 	}
 }
 
-void DictionaryUI::Render_Main_Dictionary(HDC _hdc, int _width, int _height, bool _select = false)
+void DictionaryUI::Render_Main_Dictionary(HDC _hdc, int _width, int _height, bool _select)
 {
+	Text text;
 	HDC _BGDC = IMG_MGR->GetImg("Dic_01")->GetImgDC();
 	BitBlt(_hdc, 0, 0, WIN_WIDTH, WIN_HEIGHT, _BGDC, 0, 0, SRCCOPY);
 
@@ -255,6 +256,8 @@ void DictionaryUI::Render_Main_Dictionary(HDC _hdc, int _width, int _height, boo
 
 void DictionaryUI::Render_Dictionary_List(HDC _hdc, int width, int _height)
 {
+
+	Text text;
 	auto img = IMG_MGR->GetImg("Dic_01");
 	text.TextBox(_hdc, 250, 6, "포켓몬    목록", 50, WHITE);
 	text.TextBox(_hdc, 100, 60, "No001  - - - - -", 50, BLACK);

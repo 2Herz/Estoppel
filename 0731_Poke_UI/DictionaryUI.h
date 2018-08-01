@@ -21,10 +21,9 @@ private:
 	int m_MaxNum;
 	int m_TopIndex = 0;
 	int m_CursorIndex = 0;
-	int m_ViewCount = 20;
+	int m_ViewCount = 9;
 
 	vector<int> textList;
-	Text text;
 
 	const char* m_category[23] =
 	{
