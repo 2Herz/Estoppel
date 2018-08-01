@@ -1,8 +1,5 @@
 #include "DictionaryUI.h"
 
-typedef TextUI Text;
-typedef BoxUI Box;
-
 DictionaryUI::DictionaryUI()
 {
 }
@@ -25,71 +22,236 @@ void DictionaryUI::Init(HWND _hWnd)
 	}
 }
 
-void DictionaryUI::Render_Main_Dictionary(HDC _hdc, int _width, int _height)
+void DictionaryUI::Render_Main_Dictionary(HDC _hdc, int _width, int _height, bool _select = false)
 {
-	Text text;
-
 	HDC _BGDC = IMG_MGR->GetImg("Dic_01")->GetImgDC();
 	BitBlt(_hdc, 0, 0, WIN_WIDTH, WIN_HEIGHT, _BGDC, 0, 0, SRCCOPY);
 
-	text.TextBox(_hdc, (m_ImgPos.x + 210),(m_ImgPos.y + 11), "포켓몬    도감    목차", m_WordSize, WHITE);
-	if (m_ImgPos.y < (WIN_HEIGHT - 576) && m_ImgPos.y < (WIN_HEIGHT - 128))
+	for (int i = 0; i < m_ViewCount + 1; i++)
 	{
-		text.TextBox(_hdc, m_ImgPos.x + 15, m_ImgPos.y + 66, m_str[0], m_WordSize, ORANGE);
-		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 120, m_str[1], m_WordSize, BLACK);
-		text.TextBox(_hdc, m_ImgPos.x + 15, m_ImgPos.y + 166, m_str[2], m_WordSize, ORANGE);
+		textList.push_back(i);
+	}
 
-		for (int i = 3; i <= 11; i++)
+	while (true)
+	{
+		if (!m_isDraw)
 		{
-			text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY, m_str[3], m_WordSize, BLACK);
-			text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + m_WordSize, m_str[4], m_WordSize, BLACK);
-			text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + m_posY + (m_WordSize * 2), m_str[5], m_WordSize, BLACK);
-		}
-
-		text.TextBox(_hdc, (m_ImgPos.x + 15), (m_ImgPos.y + 256), m_str[12], m_WordSize, ORANGE);
-
-		for (int i = 11; i <= 14; i++)
-		{
-			text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 296, m_str[13], m_WordSize, BLACK);
-			text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 296 + 41, m_str[14], m_WordSize, BLACK);
-			text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 296 + 81, m_str[15], m_WordSize, BLACK);
-			text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 296 + 121, m_str[16], m_WordSize, BLACK);
-		}
-
-		text.TextBox(_hdc, m_ImgPos.x + 15, m_ImgPos.y + 296 + (m_WordSize * 4) + 30, m_str[17], m_WordSize, ORANGE);
-		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 296 + (m_WordSize * 5) + 30, m_str[18], m_WordSize, BLACK);
-		text.TextBox(_hdc, m_ImgPos.x + 750, m_ImgPos.y + 595, "선택", (m_WordSize - 5), WHITE);
-		text.TextBox(_hdc, m_ImgPos.x + 865, m_ImgPos.y + 595, "결정", (m_WordSize - 5), WHITE);
-		text.TextBox(_hdc, m_ImgPos.x + 680, m_ImgPos.y + 113, "발견한  포켓몬", (m_WordSize - 5), BLACK);
-		text.TextBox(_hdc, m_ImgPos.x + 680, m_ImgPos.y + 203, "잡은  포켓몬", (m_WordSize - 5), BLACK);
-
-		//	화살표 : 기본값 false
-		if (m_isSelect == false)	return;
-
-		auto select = IMG_MGR->GetImg("Select");
-		select->AniRender(_hdc, 0, (m_ImgPos.x + 80) * m_CellSize.cx, (m_ImgPos.y + 120) + (m_Select * 2) * m_CellSize.cy);
-
-		if (m_isClick == false)
-		{
-			if (KEYMGR.OnceKeyDown(VK_DOWN))
+			for (int i = 0; i < m_ViewCount; i++)
 			{
-				m_Select++;
-				if (m_Select > m_MaxNum - 1)
-					m_Select = 0;
+				if (i + m_TopIndex >= textList.size()) break;
+				text.TextBox(_hdc, m_ImgPos.x + 210, m_ImgPos.y + 11, "포켓몬    도감    목차", m_WordSize, WHITE);
+				//	포켓몬 목록 - 고정 포커스
+				if (m_isFocus == false)
+				{
+					text.TextBox(_hdc, m_ImgPos.x + 15, m_ImgPos.y + 66, m_category[0], m_WordSize, ORANGE);
+					text.TextBox(_hdc, m_ImgPos.x + 15, m_ImgPos.y + 166, m_category[1], m_WordSize, ORANGE);
+					text.TextBox(_hdc, m_ImgPos.x + 15, m_ImgPos.y + 206 + (m_WordSize * 9), m_category[12], m_WordSize, ORANGE);
+					text.TextBox(_hdc, m_ImgPos.x + 15, m_ImgPos.y + 206 + (m_WordSize * 14) + 30, m_category[17], m_WordSize, ORANGE);
+				}
+
+				//	비고정 포커스
+				if (!m_isFocus)
+				{
+					//	번호 순
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 120, m_category[2], m_WordSize, BLACK);
+					//	초원 ~ 희귀한
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206, m_category[3], m_WordSize, BLACK);
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize), m_category[4], m_WordSize, BLACK);
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 2), m_category[5], m_WordSize, BLACK);
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 3), m_category[6], m_WordSize, BLACK);
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 4), m_category[7], m_WordSize, BLACK);
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 5), m_category[8], m_WordSize, BLACK);
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 6), m_category[9], m_WordSize, BLACK);
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 7), m_category[10], m_WordSize, BLACK);
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 8), m_category[11], m_WordSize, BLACK);
+					//	정렬
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 10), m_category[13], m_WordSize, BLACK);
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 11), m_category[14], m_WordSize, BLACK);
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 12), m_category[15], m_WordSize, BLACK);
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 13), m_category[16], m_WordSize, BLACK);
+					//	기타
+					text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 15) + 30, m_category[18], m_WordSize, BLACK);
+				}
+
+				text.TextBox(_hdc, m_ImgPos.x + 750, m_ImgPos.y + 595, m_category[19], (m_WordSize - 5), WHITE);
+				text.TextBox(_hdc, m_ImgPos.x + 865, m_ImgPos.y + 595, m_category[20], (m_WordSize - 5), WHITE);
+				text.TextBox(_hdc, m_ImgPos.x + 680, m_ImgPos.y + 113, m_category[21], (m_WordSize - 5), BLACK);
+				text.TextBox(_hdc, m_ImgPos.x + 680, m_ImgPos.y + 203, m_category[22], (m_WordSize - 5), BLACK);
+
+				//	선택했을 때
+				if (m_CursorIndex == i + m_TopIndex)
+				{
+					if (_select == false)	return;
+
+					auto select = IMG_MGR->GetImg("Select");
+					select->AniRender(_hdc, 0, (m_StartPos.x + 1) * m_CellSize.cx, (m_StartPos.y + 1 + m_Select * 2) * m_CellSize.cy);
+
+
+					switch (m_Select)
+					{
+					case DS_POKEMON_LIST:
+					{
+						if (m_isFocus == false)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 15, m_ImgPos.y + 66, m_category[0], m_WordSize, ORANGE);
+						}
+					}
+					break;
+					case DS_LIST:
+					{
+						if (!m_isFocus)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 120, m_category[2], m_WordSize, BLACK);
+						}
+					}
+					break;
+					case DS_GRASSLAND:
+					{
+						if (!m_isFocus)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206, m_category[3], m_WordSize, BLACK);
+						}
+					}
+					break;
+
+					case DS_FOREST:
+					{
+						if (!m_isFocus)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize), m_category[4], m_WordSize, BLACK);
+						}
+					}break;
+					case DS_WATERFRONT:
+					{
+						if (!m_isFocus)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize), m_category[5], m_WordSize, BLACK);
+						}
+					}
+					break;
+					case DS_SEA:
+					{
+						if (!m_isFocus)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 2), m_category[6], m_WordSize, BLACK);
+						}
+					}
+					break;
+					case DS_CAVE:
+					{
+						if (!m_isFocus)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 3), m_category[7], m_WordSize, BLACK);
+						}
+					}
+					break;
+					case DS_MOUNTAIN:
+					{
+						if (!m_isFocus)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 4), m_category[8], m_WordSize, BLACK);
+						}
+					}
+					break;
+					case DS_WILDERNESS:
+					{
+						if (!m_isFocus)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 5), m_category[9], m_WordSize, BLACK);
+						}
+					}
+					break;
+					case DS_CITY:
+					{
+						if (!m_isFocus)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 6), m_category[10], m_WordSize, BLACK);
+						}
+					}
+					break;
+					case DS_RARE:
+					{
+						if (!m_isFocus)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 7), m_category[11], m_WordSize, BLACK);
+						}
+					}
+					break;
+					case DS_SORT:
+					{
+						if (m_isFocus == false)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 15, m_ImgPos.y + 206 + (m_WordSize * 9), m_category[12], m_WordSize, ORANGE);
+						}
+					}
+					break;
+					case DS_SORT_ORDER:
+					{
+						if (!m_isFocus)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 10), m_category[13], m_WordSize, BLACK);
+						}
+					}
+					break;
+					case DS_SORT_TYPE:
+					{
+						if (!m_isFocus)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 11), m_category[14], m_WordSize, BLACK);
+						}
+					}
+					break;
+					case DS_SORT_WEIGHT:
+					{
+						if (!m_isFocus)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 12), m_category[15], m_WordSize, BLACK);
+						}
+					}
+					break;
+					case DS_SORT_SIZE:
+					{
+						if (!m_isFocus)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 13), m_category[16], m_WordSize, BLACK);
+						}
+					}
+					break;
+					case DS_ETC:
+					{
+						if (m_isFocus == false)
+						{
+							text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 206 + (m_WordSize * 15) + 30, m_category[18], m_WordSize, BLACK);
+						}
+
+					}break;
+					}
+
+					if (KEYMGR.OnceKeyDown(VK_UP))
+					{
+						if (m_CursorIndex < textList.size() - 1) m_CursorIndex++;
+					}
+					if (KEYMGR.OnceKeyDown(VK_DOWN))
+					{
+						if (m_CursorIndex > 0) m_CursorIndex--;
+					}
+
+					if (m_CursorIndex < m_TopIndex)
+						m_TopIndex = m_CursorIndex;
+
+					if (m_CursorIndex >= m_TopIndex + m_ViewCount)
+						m_TopIndex = m_CursorIndex - m_ViewCount + 1;
+
+					m_isDraw = true;
+				}
 			}
-			if (KEYMGR.OnceKeyDown(VK_UP))
-			{
-				m_Select--;
-				if (m_Select < 0)
-					m_Select = m_MaxNum - 1;
-			}
+			m_isDraw = false;
 		}
 	}
 }
 
 void DictionaryUI::Render_Dictionary_List(HDC _hdc, int width, int _height)
 {
-	Text text;
 	auto img = IMG_MGR->GetImg("Dic_01");
 	text.TextBox(_hdc, 250, 6, "포켓몬    목록", 50, WHITE);
 	text.TextBox(_hdc, 100, 60, "No001  - - - - -", 50, BLACK);

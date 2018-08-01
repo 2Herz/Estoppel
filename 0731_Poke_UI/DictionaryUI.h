@@ -6,13 +6,35 @@ class DictionaryUI
 private:
 	int m_imgWidth = WIN_WIDTH;
 	int m_imgHeight = WIN_HEIGHT;
+
 	POINT m_ImgPos = { 0, 0 };
 	SIZE m_CellSize = { 32, 32 };
 	POINT m_StartPos = {};
 	POINT m_EndPos = {};
+
 	bool m_isSelect = false;
+	bool m_isDraw = false;
+	bool m_isDown = false;
+	bool m_isUp = false;
+	bool m_isFocus = false;
+
 	int m_MaxNum;
-	const char* m_str[19] = { {"포켓몬 목록"},  { "번호 순" }, {"여러 장소에 사는 포켓몬"},  { "초원에  사는  포켓몬" }, { "숲에  사는  포켓몬" }, { "물가에  사는  포켓몬" }, { "바다에  사는  포켓몬" }, { "동굴에  사는  포켓몬" }, { "산에  사는  포켓몬" }, { "황야에  사는  포켓몬" }, { "도시에  사는  포켓몬" }, { "희귀한  포켓몬" }, {"정렬"},  { "가나다  순" }, { "타입   순" }, { "무게   순" }, { "크기   순" }, {"기타"}, {"도감을 닫는다."} };
+	int m_TopIndex = 0;
+	int m_CursorIndex = 0;
+	int m_ViewCount = 20;
+
+	vector<int> textList;
+	Text text;
+
+	const char* m_category[23] =
+	{
+		{"포켓몬   목록"}, {"여러장소에   사는   포켓몬"}, { "번호  순" }, 
+		{ "초원에   사는   포켓몬" }, { "숲에   사는   포켓몬" }, { "물가에   사는   포켓몬" },
+		{ "바다에   사는   포켓몬" }, { "동굴에   사는   포켓몬" }, { "산에   사는   포켓몬" }, 
+		{ "황야에   사는   포켓몬" }, { "도시에   사는   포켓몬" }, { "희귀한   포켓몬" }, { "정   렬" }, 
+		{ "가나다   순" }, { "타입   순" }, { "무게   순" }, { "크기   순" }, 
+		{ "기타" }, { "도감을   닫는다" }, { "선택" }, { "결정" }, { "발견한  포켓몬" }, { "잡은  포켓몬" }
+	};
 
 public:
 	int m_Select = 0;
@@ -27,7 +49,7 @@ public:
 	void Init(HWND _hWnd);	//	초기화
 
 	//	도감 첫 화면
-	void Render_Main_Dictionary(HDC _hdc, int _width = WIN_WIDTH, int _height = WIN_HEIGHT);
+	void Render_Main_Dictionary(HDC _hdc, int _width = WIN_WIDTH, int _height = WIN_HEIGHT, bool _select = false);
 	//	도감 - 번호 순
 	void Render_Dictionary_List(HDC _hdc, int width, int _height);
 	//	도감 - 초원에 사는 포켓몬

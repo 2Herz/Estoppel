@@ -3,6 +3,7 @@
 #undef UNICODE
 #include <Windows.h>
 #include <windowsx.h>
+#include <vector>
 
 #include "KeyManager.h"
 #include "ImgMgr.h"
@@ -10,6 +11,11 @@
 
 #include "TextUI.h"
 #include "BoxUI.h"
+using namespace std;
+
+typedef TextUI Text;
+typedef BoxUI Box;
+typedef KeyManager Key;
 
 //#include "MenuUI.h"
 //
@@ -48,7 +54,8 @@ enum MENU_SELECT
 //	메뉴 - 도감 선택 목록
 enum DICTIONARY_SELECT
 {
-	DS_LIST = 1,	//	번호 순
+	DS_POKEMON_LIST = 1,
+	DS_LIST,
 	DS_GRASSLAND,
 	DS_FOREST,
 	DS_WATERFRONT,
