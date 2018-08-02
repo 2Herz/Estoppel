@@ -1,11 +1,9 @@
 #include "stdafx.h"
 #include "Scene_Main.h"
 
-
 Scene_Main::Scene_Main()
 {
 }
-
 
 Scene_Main::~Scene_Main()
 {

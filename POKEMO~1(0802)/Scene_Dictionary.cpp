@@ -14,14 +14,7 @@ Scene_Dictionary::~Scene_Dictionary()
 
 void Scene_Dictionary::Init(HWND _hWnd)
 {
-	/*IMG_MGR->OpenImg("Images/UI/Dic_01.bmp");
 
-	auto img = IMG_MGR->GetImg("Dic_01");
-
-	if (img != nullptr)
-	{
-		img->SetTrans();
-	}*/
 }
 
 void Scene_Dictionary::Update(float _elapseTime)

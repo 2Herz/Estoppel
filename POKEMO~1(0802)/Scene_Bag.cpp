@@ -15,49 +15,7 @@ Scene_Bag::~Scene_Bag()
 
 void Scene_Bag::Init(HWND _hWnd)
 {
-	/*IMG_MGR->OpenImg("Images/UI/Bag_00_x4.bmp");	//	배경
-	IMG_MGR->OpenImg("Images/UI/Bag_01_x4.bmp");	//	가방이미지
-	IMG_MGR->OpenImg("Images/UI/Arrow_Up_x4.bmp");		//	방향키
-	IMG_MGR->OpenImg("Images/UI/Arrow_Down_x4.bmp");	//	
-	IMG_MGR->OpenImg("Images/UI/Arrow_Left_x4.bmp");	//	
-	IMG_MGR->OpenImg("Images/UI/Arrow_Right_x4.bmp");	//	
-	//IMG_MGR->OpenImg("Images/UI/Bag_03.bmp");
 
-	m_BGDC = IMG_MGR->GetImg("Bag_00_x4")->GetImgDC();
-
-	auto	bagImg = IMG_MGR->GetImg("Bag_01_x4");
-	if (bagImg != nullptr)
-	{
-		bagImg->SetTrans();
-		bagImg->SetFrame(4);
-	}
-
-	auto	arrowUp = IMG_MGR->GetImg("Arrow_Up_x4");
-	if (arrowUp != nullptr)
-	{
-		arrowUp->SetTrans();
-		arrowUp->SetFrame(6);
-		
-	}
-	auto	arrowDown = IMG_MGR->GetImg("Arrow_Down_x4");
-	if (arrowDown != nullptr)
-	{
-		arrowDown->SetTrans();
-		arrowDown->SetFrame(6);
-	}
-	auto	arrowLeft = IMG_MGR->GetImg("Arrow_Left_x4");
-	if (arrowLeft != nullptr)
-	{
-		arrowLeft->SetTrans();
-		arrowLeft->SetFrame(6);
-	}
-	auto	arrowRight = IMG_MGR->GetImg("Arrow_Right_x4");
-	if (arrowRight != nullptr)
-	{
-		arrowRight->SetTrans();
-		arrowRight->SetFrame(6);
-	}	
-	*/
 }
 
 void Scene_Bag::Update(float _elapseTime)

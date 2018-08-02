@@ -38,7 +38,7 @@ private:
 	};
 
 public:
-	const char*	m_Select ="¢º";
+	int		m_Select = 0;
 	bool	m_isClick = false;
 	int		m_WordSize = 40;
 	int		m_posY = 206;
