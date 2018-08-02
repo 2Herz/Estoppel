@@ -1,7 +1,6 @@
 #include "DictionaryUI.h"
 
 typedef TextUI Text;
-typedef BoxUI Box;
 
 DictionaryUI::DictionaryUI()
 {
@@ -15,7 +14,7 @@ DictionaryUI::~DictionaryUI()
 void DictionaryUI::Init(HWND _hWnd)
 {
 	IMG_MGR->SethWnd(_hWnd);
-	IMG_MGR->OpenImg("Image/Dic_01.bmp", m_imgWidth, m_imgHeight);
+	IMG_MGR->OpenImg("Image/Dic_01.bmp", WIN_WIDTH, WIN_HEIGHT);
 
 	auto img = IMG_MGR->GetImg("Dic_01");
 
@@ -42,8 +41,8 @@ void DictionaryUI::Render_Main_Dictionary(HDC _hdc, int _width, int _height, boo
 		{
 			for (int i = 0; i < m_ViewCount; i++)
 			{
-				if (i + m_TopIndex >= textList.size()) break;
-				text.TextBox(_hdc, m_ImgPos.x + 210, m_ImgPos.y + 11, "포켓몬    도감    목차", m_WordSize, WHITE);
+				if (i + m_TopIndex >= (signed)textList.size()) break;
+				text.TextBox(_hdc, m_ImgPos.x + 250, m_ImgPos.y + 11, Dictionary_Title, m_WordSize, WHITE);
 				//	포켓몬 목록 - 고정 포커스
 				if (m_isFocus == false)
 				{
@@ -85,13 +84,13 @@ void DictionaryUI::Render_Main_Dictionary(HDC _hdc, int _width, int _height, boo
 				//	선택했을 때
 				if (m_CursorIndex == i + m_TopIndex)
 				{
-					if (_select == false)	return;
+					if (_select == false) return;
 
 					auto select = IMG_MGR->GetImg("Select");
-					select->AniRender(_hdc, 0, (m_StartPos.x + 1) * m_CellSize.cx, (m_StartPos.y + 1 + m_Select * 2) * m_CellSize.cy);
+					select->AniRender(_hdc, 0, m_ImgPos.x + 80, m_ImgPos.y + 120);
 
 
-					switch (m_Select)
+					switch (_select)
 					{
 					case DS_POKEMON_LIST:
 					{
@@ -233,7 +232,7 @@ void DictionaryUI::Render_Main_Dictionary(HDC _hdc, int _width, int _height, boo
 
 					if (KEYMGR.OnceKeyDown(VK_UP))
 					{
-						if (m_CursorIndex < textList.size() - 1) m_CursorIndex++;
+						if (m_CursorIndex < (signed)textList.size() - 1) m_CursorIndex++;
 					}
 					if (KEYMGR.OnceKeyDown(VK_DOWN))
 					{

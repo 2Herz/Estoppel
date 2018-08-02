@@ -4,9 +4,6 @@
 class DictionaryUI
 {
 private:
-	int m_imgWidth = WIN_WIDTH;
-	int m_imgHeight = WIN_HEIGHT;
-
 	POINT m_ImgPos = { 0, 0 };
 	SIZE m_CellSize = { 32, 32 };
 	POINT m_StartPos = {};
@@ -14,8 +11,6 @@ private:
 
 	bool m_isSelect = false;
 	bool m_isDraw = false;
-	bool m_isDown = false;
-	bool m_isUp = false;
 	bool m_isFocus = false;
 
 	int m_MaxNum;
@@ -24,6 +19,8 @@ private:
 	int m_ViewCount = 9;
 
 	vector<int> textList;
+
+	const char* Dictionary_Title = "포켓몬   도감   목차";
 
 	const char* m_category[23] =
 	{
@@ -36,10 +33,10 @@ private:
 	};
 
 public:
-	int m_Select = 0;
-	bool m_isClick = false;
-	int m_WordSize = 40;
-	int m_posY = 206;
+	int		m_Select = 0;
+	bool	m_isClick = false;
+	int		m_WordSize = 40;
+	int		m_posY = 206;
 
 public:
 	DictionaryUI();
