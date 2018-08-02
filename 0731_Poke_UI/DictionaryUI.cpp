@@ -33,6 +33,7 @@ void DictionaryUI::Render_Main_Dictionary(HDC _hdc, int _width, int _height, boo
 	for (int i = 0; i < m_ViewCount + 1; i++)
 	{
 		textList.push_back(i);
+		i = string::to_string(m_category[i]);
 	}
 
 	while (true)

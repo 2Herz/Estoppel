@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include <windowsx.h>
 #include <vector>
+#include <string>
 
 #include "KeyManager.h"
 #include "ImgMgr.h"
