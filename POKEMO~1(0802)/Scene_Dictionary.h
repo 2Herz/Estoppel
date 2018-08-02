@@ -1,16 +1,47 @@
 #pragma once
 #include "Scene.h"
+#include <vector>
+using namespace std;
 
 class Scene_Dictionary :
 	public Scene
 {
 private:
-	int m_imgWidth = WIN_WIDTH;
-	int m_imgHeight = WIN_HEIGHT;
+	POINT m_ImgPos = { 0, 0 };
+	SIZE m_CellSize = { 32, 32 };
+	POINT m_StartPos = {};
+	POINT m_EndPos = {};
+
+	bool m_isSelect = false;
+	bool m_isDraw	= false;
+	bool m_isFocus	= false;
+	int m_isKey	= 0;
+
+
+	int m_MaxNum;
+	int m_TopIndex = 0;
+	int m_CursorIndex = 0;
+	int m_ViewCount = 9;
+
+	vector<char> textList;
+
+	const char* Dictionary_Title = "포켓몬   도감   목차";
+
+	const char* m_category[23] =
+	{
+		{ "포켓몬   목록" },{ "여러장소에   사는   포켓몬" },{ "번호  순" },
+	{ "초원에   사는   포켓몬" },{ "숲에   사는   포켓몬" },{ "물가에   사는   포켓몬" },
+	{ "바다에   사는   포켓몬" },{ "동굴에   사는   포켓몬" },{ "산에   사는   포켓몬" },
+	{ "황야에   사는   포켓몬" },{ "도시에   사는   포켓몬" },{ "희귀한   포켓몬" },{ "정   렬" },
+	{ "가나다   순" },{ "타입   순" },{ "무게   순" },{ "크기   순" },
+	{ "기타" },{ "도감을   닫는다" },{ "선택" },{ "결정" },{ "발견한  포켓몬" },{ "잡은  포켓몬" }
+	};
 
 public:
-	int m_Select = 0;	//	도감 안에서 선택을 하게 하기위한 변수
-	int m_Sort = 0;
+	const char*	m_Select ="▶";
+	bool	m_isClick = false;
+	int		m_WordSize = 40;
+	int		m_posY = 206;
 
 public:
 	Scene_Dictionary();
