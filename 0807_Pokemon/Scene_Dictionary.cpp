@@ -80,18 +80,13 @@ void Scene_Dictionary::Render_Dictionary_List(HDC _hdc, int width, int _height)
 
 	text.TextBox(_hdc, m_ImgPos.x + 310, m_ImgPos.y + 11, "포켓몬    목록", m_WordSize, WHITE);
 
-	text.TextBox(_hdc, 100, 80,										m_Numbering[0],		m_WordSize, BLACK);
-	text.TextBox(_hdc, 100, 80 +				(m_WordSize),		m_Numbering[1],		m_WordSize, BLACK);
-	text.TextBox(_hdc, 100, 80 +				(m_WordSize * 2),	m_Numbering[2],		m_WordSize, BLACK);
-	text.TextBox(_hdc, 100, 80 +				(m_WordSize * 3),	m_Numbering[3],		m_WordSize, BLACK);
-	text.TextBox(_hdc, 100, 80 +				(m_WordSize * 4),	m_Numbering[4],		m_WordSize, BLACK);
-	text.TextBox(_hdc, 100, 80 +				(m_WordSize * 5),	m_Numbering[5],		m_WordSize, BLACK);
-	text.TextBox(_hdc, 100, 80 +				(m_WordSize * 6),	m_Numbering[6],		m_WordSize, BLACK);
-	text.TextBox(_hdc, 100, 80 +				(m_WordSize * 7),	m_Numbering[7],		m_WordSize, BLACK);
-	text.TextBox(_hdc, 100, 80 +				(m_WordSize * 8),	m_Numbering[8],		m_WordSize, BLACK);
-	text.TextBox(_hdc, 100, 80 +				(m_WordSize * 9),	m_Numbering[9],		m_WordSize, BLACK);
-	text.TextBox(_hdc, 100, 80 +				(m_WordSize * 10),	m_Numbering[10],		m_WordSize, BLACK);
-	text.TextBox(_hdc, 100, 80 +				(m_WordSize * 11),	m_Numbering[11],		m_WordSize, BLACK);
+	text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 80,				m_Numbering[0],	m_WordSize, BLACK);
+	text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 80 + (m_WordSize),	m_Numbering[1],	m_WordSize, BLACK);
+
+	for (int i = 2; i <= 11; i++)
+	{
+		text.TextBox(_hdc, m_ImgPos.x + 80, m_ImgPos.y + 80 + (m_WordSize * i), m_Numbering[i], m_WordSize, BLACK);
+	}
 }
 
 void Scene_Dictionary::Create_Arrow(HDC _hdc, int _posX, int _posY, int _MaxNum, bool _select)

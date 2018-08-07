@@ -2,12 +2,10 @@
 #include "Scene_Bag.h"
 #include "SceneMgr.h"
 
-
 Scene_Bag::Scene_Bag()
 {
 	m_BGDC = IMG_MGR->GetImg("Bag_00")->GetImgDC();
 }
-
 
 Scene_Bag::~Scene_Bag()
 {
