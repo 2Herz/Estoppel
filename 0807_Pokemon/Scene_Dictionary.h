@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 using namespace std;
+typedef TextUI Text;
 
 enum DICTIONARY_TYPE
 {
@@ -16,7 +17,7 @@ private:
 	SIZE m_CellSize = { 32, 32 };
 
 	int		m_DicNum = 0;
-	int		m_CursorIndex = 0;
+	int		m_CursorIndex = 1;
 	int		m_select = 0;
 	int		m_WordSize = 40;
 	int		m_isClick = 0;
@@ -41,7 +42,8 @@ private:
 		{ "잡은  포켓몬"	}
 	};
 
-	LPCSTR m_Numbering[19] = { 
+	LPCSTR m_Numbering[19] = 
+	{ 
 		{ "No001   - - - - - "	},
 		{ "No002   - - - - - "	},
 		{ "No003   - - - - - "	},
@@ -62,6 +64,8 @@ private:
 		{ "No018   - - - - - "	} ,
 		{ "No019   - - - - - "	} 
 	};
+
+	Text text;
 
 public:
 	Scene_Dictionary();
