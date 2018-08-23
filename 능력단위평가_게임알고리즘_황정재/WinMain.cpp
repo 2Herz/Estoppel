@@ -21,7 +21,7 @@ VOID Update(float _elapseTime)
 }
 VOID Render(HDC _hdc)
 {
-	HBRUSH hBrush = CreateSolidBrush(RGB(255, 255, 255));
+	HBRUSH hBrush = CreateSolidBrush(RGB(255, 255, 0));
 	HBRUSH hOldBrush = SelectBrush(_hdc, hBrush);
 
 	RECT rt = g_PlayerPos.GetRect(50);
