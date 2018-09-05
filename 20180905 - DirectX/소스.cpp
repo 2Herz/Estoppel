@@ -3,6 +3,7 @@
 CONST INT WIN_WIDTH = 800;
 CONST INT WIN_HEIGHT = 600;
 
+//	인터페이스 해제를 위한 편의성 함수템플릿
 template <typename T>
 void SafeRelease(T *_p)
 {
@@ -19,13 +20,14 @@ void SafeRelease(T *_p)
 #include <DirectXColors.h>
 using namespace DirectX;
 
-ID3D11Device *g_pD3DDevice = nullptr;
-ID3D11DeviceContext *g_pImm = nullptr;
-IDXGISwapChain *g_pSwapChain = nullptr;
-ID3D11RenderTargetView *g_pRTV = nullptr;
+ID3D11Device *g_pD3DDevice = nullptr;		//	그래픽카드
+ID3D11DeviceContext *g_pImm = nullptr;		//	그리는 놈
+IDXGISwapChain *g_pSwapChain = nullptr;		//	도화지
+ID3D11RenderTargetView *g_pRTV = nullptr;	//	캔버스
 
 VOID Release()
 {
+	//	생성한 순서의 역순으로 해제한다.
 	SafeRelease(g_pRTV);
 	SafeRelease(g_pImm);
 	SafeRelease(g_pSwapChain);
@@ -35,13 +37,18 @@ VOID Release()
 VOID Render(HWND _hWnd)
 {
 	g_pImm->ClearRenderTargetView(g_pRTV, Colors::Blue);
+
+	//	최종출력부분이다.
 	g_pSwapChain->Present(0, 0);
 }
 
 HRESULT InitBase(HWND _hWnd)
 {
+	//	DX11의 반환값들은 HRESULT 자료형이다.
 	HRESULT	hr = S_OK;
 
+	//	스왑체인의 정보를 담은 구조체이다.
+	//	스왑체인을 설정하기 위함이다.
 	DXGI_SWAP_CHAIN_DESC	sd = {};
 
 	sd.BufferCount = 1;
@@ -54,7 +61,8 @@ HRESULT InitBase(HWND _hWnd)
 	sd.SampleDesc.Quality = 0;
 	sd.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
 
-
+	//	호환성
+	//	가장 높은 버전부터 차례대로 호환성을 체크한다.
 	D3D_FEATURE_LEVEL	FeautureArray[] =
 	{
 		D3D_FEATURE_LEVEL_11_0,
@@ -95,7 +103,7 @@ HRESULT InitBase(HWND _hWnd)
 
 	g_pImm->OMSetRenderTargets(1, &g_pRTV, nullptr);
 
-	// Setup the viewport
+	// 뷰포트 설정
 	D3D11_VIEWPORT vp = {};
 	vp.Width = (FLOAT)WIN_WIDTH;
 	vp.Height = (FLOAT)WIN_HEIGHT;
@@ -107,6 +115,7 @@ HRESULT InitBase(HWND _hWnd)
 
 	return hr;
 }
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message)
@@ -119,6 +128,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	}
 	return(DefWindowProc(hWnd, message, wParam, lParam));
 }
+
 int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpszCmdParam, int CmdShow)
 {
 	WNDCLASSA	WndClass = {};
@@ -154,8 +164,6 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpszCmdParam, i
 
 	//	윈도우창 화면에 보여주기
 	ShowWindow(hWnd, CmdShow);
-
-	////////////////////////////////////////////////////////
 
 	//	초기화
 	if (FAILED(InitBase(hWnd)))
