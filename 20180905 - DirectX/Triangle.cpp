@@ -1,7 +1,7 @@
 #include <Windows.h>
 
 CONST INT WIN_WIDTH = 800;
-CONST INT WIN_HEIGHT = 600;
+CONST INT WIN_HEIGHT = 800;
 
 template <typename T>
 void SafeRelease(T &_p)
@@ -29,6 +29,11 @@ ID3D11RenderTargetView	*g_pRTV = nullptr;
 struct SimpleVertex
 {
 	XMFLOAT3	Pos;
+};
+
+struct SimpleVertex2
+{
+	XMFLOAT3	Pos2;
 };
 
 //	실제 정점 정보들
@@ -101,9 +106,12 @@ HRESULT	InitBase(HWND _hWnd)
 	//	실제 정점 데이터
 	SimpleVertex	vertives[] =
 	{
-		XMFLOAT3(0.0f,  0.5f, 0.5f) ,
-		XMFLOAT3(0.5f, -0.5f, 0.5f) ,
-		XMFLOAT3(-0.5f, -0.5f, 0.5f)
+		XMFLOAT3(0.5f, 0.5f, 0.5f),
+		XMFLOAT3(0.5f, -0.5f, 0.5f),
+		XMFLOAT3(-0.5f, -0.5f, 0.5f),
+		XMFLOAT3(0.5f, 0.5f, 0.5f),
+		XMFLOAT3(-0.5f, -0.5f, 0.5f),
+		XMFLOAT3(-0.5f, 0.5f, 0.5f),
 	};
 
 	// 버퍼 정보
@@ -200,7 +208,7 @@ VOID	Render(HWND _hWnd)
 		g_pImm->VSSetShader(g_pVertexShader, nullptr, 0);
 		g_pImm->PSSetShader(g_pPixelShader, nullptr, 0);
 
-		g_pImm->Draw(3, 0);
+		g_pImm->Draw(6, 0);
 	}
 
 	g_pSwapChain->Present(0, 0);
