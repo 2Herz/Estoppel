@@ -13,16 +13,16 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\Base">
-      <UniqueIdentifier>{fce81dba-b9a4-4e2c-a1e2-63ec9c80fbd1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\DrawTriangle">
       <UniqueIdentifier>{6cbb4d71-3b22-4397-b7c5-cbf5171a0438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\D3DInit">
+      <UniqueIdentifier>{fce81dba-b9a4-4e2c-a1e2-63ec9c80fbd1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="소스.cpp">
-      <Filter>소스 파일\Base</Filter>
+      <Filter>소스 파일\D3DInit</Filter>
     </ClCompile>
     <ClCompile Include="Triangle.cpp">
       <Filter>소스 파일\DrawTriangle</Filter>

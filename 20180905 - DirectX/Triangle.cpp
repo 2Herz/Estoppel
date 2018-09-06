@@ -130,12 +130,14 @@ HRESULT	InitBase(HWND _hWnd)
 	//	실제 정점 데이터
 	SimpleVertex	vertives[] =
 	{
-		XMFLOAT3(0.5f, 0.5f, 0.5f),
-		XMFLOAT3(0.5f, -0.5f, 0.5f),
-		XMFLOAT3(-0.5f, -0.5f, 0.5f),
-		XMFLOAT3(0.5f, 0.5f, 0.5f),
-		XMFLOAT3(-0.5f, -0.5f, 0.5f),
-		XMFLOAT3(-0.5f, 0.5f, 0.5f),
+		XMFLOAT3(0.5f, 0.5f, 0),
+		XMFLOAT3(0.5f, -0.5f, 0),
+		XMFLOAT3(-0.5f, -0.5f, 0),
+
+
+		XMFLOAT3(0.5f, 0.5f, 0),
+		XMFLOAT3(-0.5f, -0.5f, 0),
+		XMFLOAT3(-0.5f, 0.5f, 0),
 	};
 
 	// 버퍼 정보
