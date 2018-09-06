@@ -23,7 +23,7 @@
     <ProjectGuid>{6CB54595-26C1-4856-AEB6-6E324455BD8A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>My20180905DirectX</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

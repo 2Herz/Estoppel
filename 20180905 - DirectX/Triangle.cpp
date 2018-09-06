@@ -3,6 +3,7 @@
 CONST INT WIN_WIDTH = 800;
 CONST INT WIN_HEIGHT = 800;
 
+//	인터페이스 해제를 위한 편의성 함수템플릿
 template <typename T>
 void SafeRelease(T &_p)
 {
