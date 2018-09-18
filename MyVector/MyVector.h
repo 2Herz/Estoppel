@@ -36,7 +36,7 @@ public:
 
 	//	벡터의 길이를 구하는 함수
 	float Length(MyVector &right);
-	//	벡터의 크기를 조절하는 함수
+	//	벡터의 크기를 변경하는 함수
 	//MyVector Scailing(MyVector &right, float scalar);
 	//	단위벡터를 구하는 함수
 	MyVector Normal(MyVector &right);
