@@ -55,11 +55,6 @@ float MyVector::Length(MyVector &right)
 	return sqrtf(powf(right.x, 2) + powf(right.y, 2) + powf(right.z, 2));
 }
 
-/*MyVector MyVector::Scailing(MyVector &right, float scalar)
-{
-	return MyVector(right.x * scalar, right.y * scalar, right.z * scalar);
-}*/
-
 MyVector MyVector::Normal(MyVector &right)
 {
 	float len = Length(right);

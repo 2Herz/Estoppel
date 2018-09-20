@@ -12,6 +12,7 @@ public:
 	float z;
 
 public:
+	//	생성자 및 소멸자
 	MyVector();
 	MyVector(float _x, float _y, float _z);
 	~MyVector() = default;
@@ -36,8 +37,6 @@ public:
 
 	//	벡터의 길이를 구하는 함수
 	float Length(MyVector &right);
-	//	벡터의 크기를 변경하는 함수
-	//MyVector Scailing(MyVector &right, float scalar);
 	//	단위벡터를 구하는 함수
 	MyVector Normal(MyVector &right);
 	//	벡터의 내적을 구하는 함수
