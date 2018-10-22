@@ -240,7 +240,7 @@ public:
 	Reverse_iterator rend()
 	{
 		Reverse_iterator riter;
-		riter.m_Node = m_Begin->m_Next->m_Prev;
+		riter.m_Node = m_Begin;
 		return riter;
 	}
 };
