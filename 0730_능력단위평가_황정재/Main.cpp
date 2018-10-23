@@ -162,7 +162,7 @@ LRESULT   CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam
 
 					float distance = sqrtf(powf(RealMagnetPos.x - g_PiecePos[i].x, 2) + powf(RealMagnetPos.y - g_PiecePos[i].y, 2));
 
-					if (distance < 15)
+					if (distance < 30)
 					{
 						g_PiecePos[i] = RealMagnetPos;
 					}
