@@ -9,8 +9,8 @@
 
 #pragma comment(lib, "winmm.lib")
 
-LPCSTR		g_winName	= "HOW-TESTWINDOW";
-const int	WIN_WIDTH	= 800;
-const int	WIN_HEIGHT	= 600;
+LPCSTR		g_winName	= "HOW - FSM";
+const int	WIN_WIDTH	= 1280;
+const int	WIN_HEIGHT	= 720;
 
 extern FPOINT g_PlayerPos;
