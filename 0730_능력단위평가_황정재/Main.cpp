@@ -1,32 +1,28 @@
+//	Global Header
 #include "Global.h"
 
+//	Global Variables
 LPCSTR      g_winName = "능력단위평가";
-
-DWORD      g_LastTime = 0;
+DWORD		g_LastTime = 0;
 int         g_Count = 0;
 int         g_SetFPS = 60;
 int         g_FPS = 0;
 int         g_FPSTime = 0;
-
-POINT      m_MousePos = {};
-POINT      g_StartPos = { 450, 100 };
-SIZE      g_Size = { 3, 3 };
-int         g_CellSize = 100;
-int         g_LineWidth = 10;
-COLORREF   g_LineColor = RGB(255, 0, 0);
-
-POINT      g_PiecePos[9] = { { 100, 100 } ,{ 200, 100 } ,{ 300, 100 } ,{ 100, 200 } ,{ 200, 200 } ,{ 300, 200 } ,{ 100, 300 } ,{ 200, 300 } ,{ 300, 300 } };
-
-POINT      g_MagnetPos[9] = { { 0, 0 } ,{ 1, 0 } ,{ 2, 0 } ,{ 0, 1 } ,{ 1, 1 } ,{ 2, 1 } ,{ 0, 2 } ,{ 1, 2 } ,{ 2, 2 } };
-
-bool      g_isClick[9] = {};
-float      g_CheckPosX = 0;
-float      g_CheckPosY = 0;
-
-HDC           g_ImgDC = nullptr;
-HBITMAP     g_ImgBit = nullptr;
-HBITMAP     g_OldBit = nullptr;
-POINT      g_Pos = {};
+POINT		m_MousePos = {};
+POINT		g_StartPos = { 450, 100 };
+SIZE		g_Size = { 3, 3 };
+int			g_CellSize = 100;
+int			g_LineWidth = 10;
+COLORREF	g_LineColor = RGB(255, 0, 0);
+POINT		g_PiecePos[9] = { { 100, 100 } ,{ 200, 100 } ,{ 300, 100 } ,{ 100, 200 } ,{ 200, 200 } ,{ 300, 200 } ,{ 100, 300 } ,{ 200, 300 } ,{ 300, 300 } };
+POINT		g_MagnetPos[9] = { { 0, 0 } ,{ 1, 0 } ,{ 2, 0 } ,{ 0, 1 } ,{ 1, 1 } ,{ 2, 1 } ,{ 0, 2 } ,{ 1, 2 } ,{ 2, 2 } };
+bool		g_isClick[9] = {};
+float		g_CheckPosX = 0;
+float		g_CheckPosY = 0;
+HDC			g_ImgDC = nullptr;
+HBITMAP		g_ImgBit = nullptr;
+HBITMAP		g_OldBit = nullptr;
+POINT		g_Pos = {};
 
 void Init(HWND _hWnd)
 {
@@ -37,7 +33,7 @@ void Init(HWND _hWnd)
 	HDC   hdc = GetDC(_hWnd);
 
 	g_ImgDC = CreateCompatibleDC(hdc);
-	g_ImgBit = (HBITMAP)LoadImage(nullptr, "Koala.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
+	g_ImgBit = (HBITMAP)LoadImage(nullptr, "Ryan.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE);
 	g_OldBit = SelectBitmap(g_ImgDC, g_ImgBit);
 
 	ReleaseDC(_hWnd, hdc);
