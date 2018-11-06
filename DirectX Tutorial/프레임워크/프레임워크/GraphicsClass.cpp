@@ -13,7 +13,7 @@ GraphicsClass::~GraphicsClass()
 {
 }
 
-bool GraphicsClass::Initialize(int width, int height, HWND hWnd)
+bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 {
 	return true;
 }

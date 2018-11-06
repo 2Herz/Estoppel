@@ -13,40 +13,57 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="헤더 파일\전역">
+      <UniqueIdentifier>{401535ee-df0f-44f7-9b20-727de5223c85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\D3D">
+      <UniqueIdentifier>{568cc9f6-60d8-40ee-80c6-7e0a068b4b02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\FrameWork">
+      <UniqueIdentifier>{5b3d8465-e4c4-4b6c-ad33-ca8603fc2a22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="프레임워크.h">
+      <Filter>헤더 파일\전역</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\전역</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일\전역</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\전역</Filter>
     </ClInclude>
-    <ClInclude Include="프레임워크.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="DxDefine.h">
+      <Filter>헤더 파일\D3D</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsClass.h">
+      <Filter>헤더 파일\D3D</Filter>
+    </ClInclude>
+    <ClInclude Include="InputClass.h">
+      <Filter>헤더 파일\D3D</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemClass.h">
+      <Filter>헤더 파일\D3D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="프레임워크.cpp">
+    <ClCompile Include="SystemClass.cpp">
+      <Filter>소스 파일\FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="InputClass.cpp">
+      <Filter>소스 파일\FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsClass.cpp">
+      <Filter>소스 파일\FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="WinMain.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="프레임워크.rc">
-      <Filter>리소스 파일</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="small.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="프레임워크.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
   </ItemGroup>
 </Project>

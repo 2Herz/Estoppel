@@ -147,26 +147,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DxDefine.h" />
+    <ClInclude Include="GraphicsClass.h" />
+    <ClInclude Include="InputClass.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SystemClass.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="프레임워크.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GraphicsClass.cpp" />
+    <ClCompile Include="InputClass.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="프레임워크.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="프레임워크.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="small.ico" />
-    <Image Include="프레임워크.ico" />
+    <ClCompile Include="SystemClass.cpp" />
+    <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
