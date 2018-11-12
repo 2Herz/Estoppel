@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "Graphics.h"
 #include "D3DClass.h"
+#include "Graphics.h"
 
 Graphics::Graphics()
 {
@@ -16,13 +16,14 @@ Graphics::~Graphics()
 
 bool Graphics::Initialize(int screenWidth, int screenHeight, HWND hWnd)
 {
-	m_Direct3D = (D3DClass*) _aligned_malloc(sizeof(D3DClass), 16);
+	m_Direct3D = new D3DClass;
 	if (!m_Direct3D)
 	{
 		return false;
 	}
 
-	if (!m_Direct3D->Initialize(screenWidth, screenHeight, VSYNC_ENABLED, hWnd, FULL_SCREEN, SCREEN_DEPTH, SCREEN_NEAR))
+	if (!m_Direct3D->Initialize(screenWidth, screenHeight, VSYNC_ENABLED,
+		hWnd, FULL_SCREEN, SCREEN_DEPTH, SCREEN_NEAR))
 	{
 		MessageBox(hWnd, L"Direct3D를 초기화 하지 못했습니다!", L"오류", MB_OK);
 		return false;

@@ -140,8 +140,8 @@ bool D3DClass::Initialize(int screenWidth, int screenHeight, bool vsync, HWND hW
 		return false;
 	}
 
-	DS* backBufferPtr = nullptr;
-	if (FAILED(m_SwapChain->GetBuffer(0, __uuidof(DS), (LPVOID*)&backBufferPtr)))
+	DepthStencil* backBufferPtr = nullptr;
+	if (FAILED(m_SwapChain->GetBuffer(0, __uuidof(DepthStencil), (LPVOID*)&backBufferPtr)))
 	{
 		return false;
 	}

@@ -137,7 +137,7 @@ void System::InitializeWindows(int& screenWidth, int& screenHeight)
 	m_hInst = GetModuleHandle(nullptr);
 
 	//	프로그램의 이름을 설정
-	m_WinName = L"1106_Direct X 11 초기화";
+	m_WinName = L"1107_버퍼, 쉐이더 및 HLSL";
 
 	//	Window Class 설정
 	WNDCLASSEX wc;

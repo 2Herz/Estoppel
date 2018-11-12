@@ -32,10 +32,10 @@ private:
 	Device* m_Device = nullptr;
 	DC* m_pImm = nullptr;
 	RTV* m_RTV = nullptr;
-	DS* m_ds = nullptr;
-	DSS* m_dss = nullptr;
-	DV* m_dv = nullptr;
-	RS* m_rs = nullptr;
+	DepthStencil* m_ds = nullptr;
+	DepthStencilState* m_dss = nullptr;
+	DepthStencilView* m_dv = nullptr;
+	RasterizerState* m_rs = nullptr;
 	XMMATRIX m_Proj;
 	XMMATRIX m_World;
 	XMMATRIX m_Ortho;
