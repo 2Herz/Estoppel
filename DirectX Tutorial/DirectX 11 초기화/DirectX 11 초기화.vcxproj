@@ -157,8 +157,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DirectX 초기화.cpp" />
     <ClCompile Include="D3DClass.cpp" />
-    <ClCompile Include="DirectX 11 초기화.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="stdafx.cpp">

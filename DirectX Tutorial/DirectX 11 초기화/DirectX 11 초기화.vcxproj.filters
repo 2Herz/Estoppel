@@ -56,9 +56,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="DirectX 11 초기화.cpp">
-      <Filter>소스 파일\메인</Filter>
-    </ClCompile>
     <ClCompile Include="Graphics.cpp">
       <Filter>소스 파일\프레임워크</Filter>
     </ClCompile>
@@ -70,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="D3DClass.cpp">
       <Filter>소스 파일\프레임워크</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectX 초기화.cpp">
+      <Filter>소스 파일\메인</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
