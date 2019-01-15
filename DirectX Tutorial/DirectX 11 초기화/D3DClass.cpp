@@ -308,9 +308,7 @@ void D3DClass::Shutdown()
 
 void D3DClass::BeginScene(float red, float green, float blue, float alpha)
 {
-	float color[4] = { red, green, blue, alpha };
-
-	m_pImm->ClearRenderTargetView(m_RTV, Colors::Blue);
+	m_pImm->ClearRenderTargetView(m_RTV, Colors::DarkBlue);
 
 	m_pImm->ClearDepthStencilView(m_dv, D3D11_CLEAR_DEPTH, 1.0f, 0);
 }
