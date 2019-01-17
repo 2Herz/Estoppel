@@ -14,15 +14,16 @@ SystemClass::~SystemClass()
 
 bool SystemClass::Init()
 {
-	//	함수에 인자로 넘기기위한 변수들, 위도우 가로 및 세로 변수 초기화
+	//	윈도우 가로 및 세로에 사용할 변수.
+	//	함수에서 사용하기 위해 필요함
 	int screenWidth = 0;
 	int screenHeight = 0;
-	bool result = false;
 
-	//	윈도우 API 초기화
+	//	윈도우 초기화
+	//	파라미터 : 가로, 세로
 	InitWindows(screenWidth, screenHeight);
 
-	//	입력 객체 생성-> 이 객체는 사용자의 키보드 입력의 모든 처리에 사용
+	//	입력(Input) 객체 생성 -> 모든 키보드 입력 관리
 	m_Input = new InputClass;
 	if (!m_Input)
 	{
@@ -32,7 +33,7 @@ bool SystemClass::Init()
 	//	입력 객체 초기화
 	m_Input->Init();
 
-	//	그래픽 객체 생성-> 이 객체는 이 프로그램의 모든 그래픽 랜더링 처리에 사용
+	//	그래픽(Graphics) 객체 생성-> 모든 그래픽 처리 관리
 	m_Graphics = new GraphicsClass;
 	if (!m_Graphics)
 	{
@@ -40,8 +41,9 @@ bool SystemClass::Init()
 	}
 
 	//	그래픽 객체 초기화
-	result = m_Graphics->Init(screenWidth, screenHeight, m_hWnd);
-	if (!result)
+	//	파라미터 : 가로, 세로, 윈도우 핸들
+	m_Graphics->Init(screenWidth, screenHeight, m_hWnd);
+	if (!m_Graphics)
 	{
 		return false;
 	}
@@ -222,7 +224,7 @@ void SystemClass::InitWindows(int& screenWidth, int& screenHeight)
 
 	//	편의를 위한 변수등...(옵션 플래그 일일히 다 적기 귀찮...)
 	int op = WS_EX_APPWINDOW;
-	int op2 = WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_POPUP;
+	int op2 = WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_POPUP | WS_CAPTION | WS_SYSMENU;
 
 	//	위의 설정으로 윈도우 창을 생성하고 윈도우 핸들을 얻어온다.
 	m_hWnd = CreateWindowEx(op, m_appName, m_appName, op2, posX, posY, screenWidth, screenHeight, nullptr, nullptr, m_hInst, nullptr);
