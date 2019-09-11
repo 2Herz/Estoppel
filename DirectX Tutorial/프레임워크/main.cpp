@@ -1,5 +1,15 @@
 #include "SystemClass.h"
 
+/*
+	이 곳은 메인함수 부분인다.
+
+	직접적으로 프로그램이 실행되는 부분이며
+
+	다른 클래스에서 구현된 모든 기능과 인터페이스들을
+
+	실행파일(.exe파일)로 만드는 부분이다.
+*/
+
 int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, PSTR CmdParam, int CmdShow)
 {
 	SystemClass*	System = nullptr;
